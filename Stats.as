@@ -1,0 +1,5 @@
+namespace Stats {
+
+    void Test() {
+    }
+}
