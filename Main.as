@@ -6,9 +6,18 @@ bool debug = true;
 
 void Main() {
     print("Main()");
+
+    while(true) {
+        Stats::Test();
+        yield();
+        sleep(100);
+    }
 }
 
 void Update(float dt) {
-    Logger::Log(InGame::IsPlayerInGame());
-    // Stats::Test();
+    // while(true) {
+    //     Stats::Test();
+    //     yield();
+    //     sleep(10000);
+    // }
 }
