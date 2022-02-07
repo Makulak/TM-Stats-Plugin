@@ -2,29 +2,28 @@ namespace Stats {
 
     uint pbTime = 4294967295; // Max Uint
 
+    bool sent = false; // Jusdt for debug - remove after removing <= pbTime
+
     void Test() {
         if(Game::IsGameModeIntro())
         {
-            print("Intro");
         }
         else if(Game::IsGameModePlaying())
         {
-            
+            sent = false;
         }
         else if(Game::IsGameModeEndRound())
         {
-            print("EndRound");
         }
         else if(Game::IsGameModeFinish())
         {
             uint currentPb = Pb::GetPbTime();
-            print(Pb::GetPbTime());
-            print(pbTime);
-            if(currentPb <= pbTime) { // = just for testing purposes
+            string playerId = Game::GetPlayerInfo().Login;
+            if(currentPb <= pbTime && !sent) { // <= just for testing purposes
+                sent = true;
                 pbTime = currentPb;
-                Api::PostNewPb(pbTime, Time::get_Now(), Game::GetMapInfo().MapUid, GetLocalLogin());
+                Api::PostNewPb(pbTime, Game::GetMapInfo().MapUid, playerId);
             }
-            print("Finish");
         }
     }
 }

@@ -24,4 +24,9 @@ namespace Game {
     {
         return TmUtils::Game::GetMapInfo();
     }
+
+    CTrackManiaPlayerInfo@ GetPlayerInfo()
+    {
+        return TmUtils::Trackmania::GetPlayerInfo();
+    }
 }

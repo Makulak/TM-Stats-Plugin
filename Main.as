@@ -10,14 +10,9 @@ void Main() {
     while(true) {
         Stats::Test();
         yield();
-        sleep(100);
+        sleep(250);
     }
 }
 
 void Update(float dt) {
-    // while(true) {
-    //     Stats::Test();
-    //     yield();
-    //     sleep(10000);
-    // }
 }

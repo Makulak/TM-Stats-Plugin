@@ -1,8 +1,11 @@
 namespace Api {
 
-    string NewPbEndpoint = "http://127.0.0.1:3000/post-new-pb";
+    string NewPbEndpoint = "http://localhost:7071/api/post-new-pb";
 
-    Net::HttpRequest PostNewPb(uint pbTime, uint64 currentDateTime, string mapId, string userId) {
-        return Net::HttpPost(NewPbEndpoint, "", "application/json");
+    Net::HttpRequest PostNewPb(uint pbTime, string mapId, string userId) {
+        print(pbTime);
+        print(mapId);
+        print(userId);
+        return Net::HttpPost(NewPbEndpoint, "{\"PlayerId\":\"abcd\", \"MapId\":\"1234\", \"Time\":\"12345\"}", "application/json");
     }
 }
